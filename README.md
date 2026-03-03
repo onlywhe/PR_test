@@ -155,3 +155,28 @@ git push origin main
                     ↓              ↓
                 完成 🎉        ← 返回审核
 ```
+
+### 📋 从命令行同步分叉分支
+
+必须先在 Git 中配置指向上游存储库的远程库，然后才能将分支与上游存储库同步。
+
+1. **打开Git Bash**
+
+2. **将当前工作目录更改为你的本地仓库**
+
+3. **从上游仓库获取分支及其各自的提交**
+对 BRANCH-NAME 的提交将保存在本地分支 upstream/BRANCH-NAME 中。
+```bash
+git fetch upstream
+```
+
+4. **签出分支的本地默认分支**
+```bash
+git checkout main
+```
+
+5. **将上游默认分支（在本例中为 upstream/main）的更改合并到本地默认分支中**
+这会使复刻的默认分支与上游仓库同步，而不会丢失本地更改。
+```bash
+git merge upstream/main
+```
